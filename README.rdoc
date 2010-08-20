@@ -19,6 +19,8 @@ On an Ubuntu box, you can install these by running a single command line
  
   sudo apt-get install pngcrush gifsicle libjpeg-progs  
 
+(This assumes you have ruby, ruby1.8-dev, and gem installed).
+
 Mac OSX users can install the first two as Macports packages. The third (part of libjpeg) instead, has to be 
 {compiled manually}[http://www.phpied.com/installing-jpegtran-mac-unix-linux]. 
 

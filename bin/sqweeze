@@ -80,7 +80,7 @@ op=OptionParser.new do |opts|
   opts.separator ""
   opts.separator "Console output:"
   
-  opts.on('-q',"--quite", "suppress console output ") do |q|  
+  opts.on('-q',"--quiet", "suppress console output ") do |q|  
       options[:suppress_warn] = true
       options[:suppress_info] = true
   end

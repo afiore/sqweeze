@@ -60,9 +60,11 @@ class CssCompressor < Compressor
 
   def embed_datauris(compressed_css)
     out=compressed_css.gsub(EMBED_DETECTOR) do |url|
-    compressed_asset_path=remap_filepath($1)
-      mime_t=mime_type(compressed_asset_path)
-      if compressed_asset_path and File.exists?(compressed_asset_path) and File.size(compressed_asset_path) < MAX_IMAGE_SIZE and mime_t
+    
+     compressed_asset_path=remap_filepath($1)
+     mime_t=mime_type(compressed_asset_path)
+
+     if compressed_asset_path and File.exists?(compressed_asset_path) and File.size(compressed_asset_path) < MAX_IMAGE_SIZE and mime_t
          base64_asset=encoded_contents( compressed_asset_path ) 
          $log.debug("file:#{compressed_asset_path}; mime-type: #{mime_type($1)}#")
          # label the image
@@ -70,9 +72,8 @@ class CssCompressor < Compressor
          "url(\"data:#{mime_t};charset=utf-8;base64,#{base64_asset}\")"
        else
          "url(#{$1})"
-      end
-    end
-
+       end
+    end 
     
     write_file(out,"#{@cm.target_dir}/stylesheets.min.datauri.css")
   end
