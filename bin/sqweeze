@@ -38,7 +38,7 @@ op=OptionParser.new do |opts|
   opts.on('-e','--exclude-files=PATTERN', "Exclude a file/directory pattern (e.g. doc/**/*.* )") do |exc|
     options[:exclude_files] = exc
   end
-  opts.on('-d','--dom-documents=PATTERN', "Dom document/s to which CSS/JS  should be linked (e.g. **/index.html )") do |dom|
+  opts.on('-D','--dom-documents=PATTERN', "Dom document/s to which CSS/JS  should be linked (e.g. **/index.html )") do |dom|
     options[:dom_documents] = dom
   end  
 
