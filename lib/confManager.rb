@@ -15,8 +15,7 @@ class ConfManager
     @conf_filename='.sqweeze.yml'
     @source_dir=nil
     @target_dir=nil
-    @files=[]
-    
+    @files=[]    
     @conf={
       :suppress_info => false,
       :suppress_debug => true,
@@ -62,6 +61,8 @@ class ConfManager
   def prepare(source,target=nil,override_conf={})
     
     @source_dir=source
+    raise 'Cannot sqweeze current directory' if source == '.'
+
     @target_dir=unless target
       "#{File.basename(source)}_sqweezed"            
     else 
